@@ -1,0 +1,15 @@
+node_modules/
+dist/
+out/
+.DS_Store
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Backup files
+*.bak
+*.backup
+*~
+*.orig

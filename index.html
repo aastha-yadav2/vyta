@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; media-src blob:;">
+    <title>VYTA — Your Body. Your Rhythm.</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="vyta-app">
+    <!-- Top App Shell Header -->
+    <header class="app-header">
+        <div class="brand-group">
+            <div class="brand-mark">
+                <span class="brand-orb-symbol"></span>
+                <span class="brand-name">VYTA</span>
+            </div>
+            <span class="brand-divider">/</span>
+            <span class="brand-tagline">Your Body. Your Rhythm.</span>
+        </div>
+
+        <nav class="nav-bar" aria-label="Main Navigation">
+            <button type="button" class="nav-tab active" data-tab="overview">Overview</button>
+            <button type="button" class="nav-tab" data-tab="live-session">Live Session</button>
+            <button type="button" class="nav-tab" data-tab="history">History</button>
+            <button type="button" class="nav-tab" data-tab="settings">Settings</button>
+        </nav>
+
+        <div class="header-status-area">
+            <div id="sensor-pill" class="sensor-pill sensor-ready" title="Optical sensor status">
+                <span class="sensor-dot"></span>
+                <span id="sensor-status-text">Sensor Ready</span>
+            </div>
+            <span id="status-badge" class="status status-uninitialized">Uninitialized</span>
+        </div>
+    </header>
+
+    <!-- Global Alert / Error Banner -->
+    <div id="error-banner" class="error-banner" hidden>
+        <div class="error-banner-inner">
+            <span class="error-banner-icon">⚠</span>
+            <span class="error-banner-code" id="error-code">—</span>
+            <span class="error-banner-message" id="error-message"></span>
+        </div>
+    </div>
+
+    <!-- Main Viewport Area -->
+    <main class="app-viewport">
+
+        <!-- ============================================================= -->
+        <!-- VIEW 1: OVERVIEW & BREATHING HERO                             -->
+        <!-- ============================================================= -->
+        <section id="view-overview" class="view-pane active">
+            <div class="overview-grid">
+                <!-- Hero Central Breathing Card -->
+                <div class="hero-card">
+                    <div class="hero-header">
+                        <span class="hero-chip">Rhythm Guide</span>
+                        <h2 class="hero-title">Find your rhythm.</h2>
+                        <p class="hero-subtitle">Attune to your natural pace through contactless breathing awareness.</p>
+                    </div>
+
+                    <!-- Animated Breathing Orb -->
+                    <div class="breathing-orb-container" id="breathing-orb-container">
+                        <div class="orb-ambient-glow" id="orb-ambient-glow"></div>
+                        <div class="orb-ring ring-outer" id="ring-outer"></div>
+                        <div class="orb-ring ring-middle" id="ring-middle"></div>
+                        <div class="orb-ring ring-inner" id="ring-inner"></div>
+                        <div class="breathing-orb" id="breathing-orb">
+                            <div class="orb-content">
+                                <span class="orb-phase-text" id="orb-phase-text">Breathe</span>
+                                <span class="orb-countdown" id="orb-countdown">Ready</span>
+                                <span class="orb-sub-text" id="orb-sub-text">Pacing Guide</span>
+                            </div>
+                        </div>
+                        <div class="orb-disclaimer">Visual idle pacing • Live physiological sensing begins on session start</div>
+                    </div>
+
+                    <!-- 12-Second Cycle Progress Track -->
+                    <div class="breathing-cycle-indicator" id="breathing-cycle-indicator">
+                        <div class="cycle-segment seg-inhale" id="seg-inhale">
+                            <div class="seg-header">
+                                <span class="seg-label">Inhale</span>
+                                <span class="seg-time">4s</span>
+                            </div>
+                            <div class="seg-progress-track">
+                                <div class="seg-progress-fill" id="fill-inhale"></div>
+                            </div>
+                        </div>
+                        <div class="cycle-segment seg-hold" id="seg-hold">
+                            <div class="seg-header">
+                                <span class="seg-label">Hold</span>
+                                <span class="seg-time">2s</span>
+                            </div>
+                            <div class="seg-progress-track">
+                                <div class="seg-progress-fill" id="fill-hold"></div>
+                            </div>
+                        </div>
+                        <div class="cycle-segment seg-exhale" id="seg-exhale">
+                            <div class="seg-header">
+                                <span class="seg-label">Exhale</span>
+                                <span class="seg-time">6s</span>
+                            </div>
+                            <div class="seg-progress-track">
+                                <div class="seg-progress-fill" id="fill-exhale"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Session Controls & Duration Selector -->
+                    <div class="hero-actions-bar">
+                        <div class="duration-selector" id="duration-selector">
+                            <span class="selector-label">Target Duration</span>
+                            <div class="duration-pills">
+                                <button type="button" class="dur-pill" data-mins="1">1 min</button>
+                                <button type="button" class="dur-pill active" data-mins="3">3 min</button>
+                                <button type="button" class="dur-pill" data-mins="5">5 min</button>
+                                <button type="button" class="dur-pill" data-mins="0">Open</button>
+                            </div>
+                        </div>
+
+                        <!-- Idle Start Action -->
+                        <button type="button" class="btn-hero-start" id="btn-hero-start">
+                            <span>Begin Session</span>
+                            <span class="btn-arrow">→</span>
+                        </button>
+
+                        <!-- Active / Paused Session Controls -->
+                        <div class="hero-session-controls" id="hero-session-controls" hidden>
+                            <div class="hero-session-info">
+                                <span class="hero-session-label">Session Elapsed</span>
+                                <span class="hero-session-timer" id="hero-session-timer">00:00</span>
+                            </div>
+                            <div class="hero-session-buttons">
+                                <button type="button" class="btn-hero-action btn-pause" id="btn-hero-pause" title="Pause session">
+                                    <span class="btn-icon">⏸</span>
+                                    <span>Pause</span>
+                                </button>
+                                <button type="button" class="btn-hero-action btn-resume" id="btn-hero-resume" title="Resume session" hidden>
+                                    <span class="btn-icon">▶</span>
+                                    <span>Resume</span>
+                                </button>
+                                <button type="button" class="btn-hero-action btn-end" id="btn-hero-end" title="End and save session">
+                                    <span class="btn-icon">⏹</span>
+                                    <span>End Session</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Insights Panel -->
+                <div class="insights-column">
+                    <div class="panel-section-header">
+                        <span class="panel-section-title">Session Insights</span>
+                        <span class="panel-section-sub">Real-time indicators</span>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-meta">
+                            <span class="insight-label">Current Breathing Rate</span>
+                            <span class="insight-badge live-tag">Live</span>
+                        </div>
+                        <div class="insight-value-row">
+                            <span class="insight-number" id="insight-breathing-val">—</span>
+                            <span class="insight-unit">BR/min</span>
+                        </div>
+                        <div class="insight-caption" id="insight-breathing-caption">Awaiting session start</div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-meta">
+                            <span class="insight-label">Session Duration</span>
+                            <span class="insight-badge">Timer</span>
+                        </div>
+                        <div class="insight-value-row">
+                            <span class="insight-number" id="insight-duration-val">00:00</span>
+                            <span class="insight-unit">min:sec</span>
+                        </div>
+                        <div class="insight-caption" id="insight-duration-caption">Ready when you are</div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-meta">
+                            <span class="insight-label">Sensor Quality</span>
+                            <span class="insight-badge quality-tag" id="insight-quality-tag">Optimal</span>
+                        </div>
+                        <div class="insight-value-row">
+                            <span class="insight-status-text" id="insight-quality-val">30 FPS Verified</span>
+                        </div>
+                        <div class="insight-caption" id="insight-quality-caption">Contactless optical sensing active</div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-meta">
+                            <span class="insight-label">Previous Session</span>
+                            <span class="insight-badge">Recent</span>
+                        </div>
+                        <div class="insight-empty-text" id="insight-last-session-text">No previous session recorded yet</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- VIEW 2: LIVE SESSION (Full workstation with charts & camera) -->
+        <!-- ============================================================= -->
+        <section id="view-live-session" class="view-pane">
+            <div class="live-session-layout">
+                <!-- Left Sub-column: Camera Feed + Telemetry + Controls -->
+                <aside class="session-sidebar">
+                    <div class="session-card">
+                        <div class="session-card-header">
+                            <div class="card-title-group">
+                                <span class="card-status-dot"></span>
+                                <span class="card-title">Live Sensing Feed</span>
+                            </div>
+                            <div class="session-timer-pill">
+                                <span class="timer-dot"></span>
+                                <span id="session-timer-display">00:00</span>
+                            </div>
+                        </div>
+
+                        <!-- Camera Preview Box -->
+                        <div class="preview-wrap">
+                            <div class="preview">
+                                <video id="preview" autoplay playsinline muted></video>
+                                <div id="facial-lum-badge" class="lum-badge" hidden>
+                                    <span class="lum-label">Face Light:</span>
+                                    <span id="lum-value">—</span>
+                                </div>
+                                <div id="validation" class="hint">Click <strong>Start</strong> when ready.</div>
+                            </div>
+                        </div>
+
+                        <!-- Camera Controls & Dropdown -->
+                        <div class="camera-controls-wrap">
+                            <div class="camera-select-row">
+                                <label class="camera-picker-label" for="camera-select">Device</label>
+                                <select id="camera-select" class="camera-select">
+                                    <option value="">— detecting cameras… —</option>
+                                </select>
+                                <button id="btn-refresh-cameras" type="button" class="btn-icon" title="Refresh camera list">↺</button>
+                            </div>
+                            <div class="fps-lock-toggle-wrap">
+                                <label class="toggle toggle-fps-lock">
+                                    <input type="checkbox" id="toggle-fps-lock" checked>
+                                    <span>Lock 30 FPS Mode <em>(recommended for vitals)</em></span>
+                                </label>
+                            </div>
+                            <div class="screen-light-toggle-wrap">
+                                <label class="toggle toggle-light">
+                                    <input type="checkbox" id="toggle-screen-light">
+                                    <span>Screen Fill Light <em>(low-light support)</em></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Camera Debug HUD -->
+                        <div id="cam-debug-panel" class="cam-debug-panel" hidden>
+                            <div class="cam-debug-row"><span class="cam-debug-key">Sensor</span><span id="dbg-label" class="cam-debug-val">—</span></div>
+                            <div class="cam-debug-row"><span class="cam-debug-key">Resolution</span><span id="dbg-res" class="cam-debug-val">—</span></div>
+                            <div class="cam-debug-row"><span class="cam-debug-key">Config FPS</span><span id="dbg-fps-settings" class="cam-debug-val">—</span></div>
+                            <div class="cam-debug-row"><span class="cam-debug-key">Live FPS</span><span id="dbg-fps-live" class="cam-debug-val">—</span></div>
+                            <div class="cam-debug-row"><span class="cam-debug-key">Exposure</span><span id="dbg-exposure" class="cam-debug-val">—</span></div>
+                        </div>
+
+                        <!-- Live Numeric Readouts -->
+                        <div class="readouts">
+                            <div class="readout-card">
+                                <div class="readout-label">Breathing Rate</div>
+                                <div class="readout-value"><span id="readout-breathing">—</span> <span class="readout-unit">BR/min</span></div>
+                            </div>
+                            <div class="readout-card">
+                                <div class="readout-label">Heart Rate</div>
+                                <div class="readout-value"><span id="readout-pulse">—</span> <span class="readout-unit">BPM</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="controls">
+                            <button id="btn-start" type="button" class="btn-action btn-start">Start</button>
+                            <button id="btn-stop"  type="button" class="btn-action btn-stop" disabled>Stop</button>
+                            <button id="btn-reset" type="button" class="btn-action btn-reset" disabled>Reset</button>
+                        </div>
+
+                        <!-- Telemetry Metric Toggles -->
+                        <div class="metrics-toggles">
+                            <div class="panel-label">Telemetry Bundles</div>
+                            <div class="toggle-list">
+                                <div class="toggle toggle-static">
+                                    <span class="check check-on"></span>
+                                    <span>Breathing <em>(always active)</em></span>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" id="m-cardio">
+                                    <span>Cardio Measurements <em>(pulse, arterial pressure)</em></span>
+                                </label>
+                                <label class="toggle">
+                                    <input type="checkbox" id="m-face">
+                                    <span>Face Metrics <em>(landmarks, expressions)</em></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Right Sub-column: Waveform & Rate Charts -->
+                <div class="session-charts-column">
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="chart-accent-dot breathing-dot"></span>
+                                <div class="chart-title">Breathing Rate</div>
+                            </div>
+                            <div class="chart-unit">BR/min</div>
+                        </div>
+                        <div class="chart-canvas-wrap">
+                            <canvas id="chart-breathing-rate"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-panel">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="chart-accent-dot waveform-dot"></span>
+                                <div class="chart-title">Breathing Pleth Waveform</div>
+                            </div>
+                            <div class="chart-unit">raw trace</div>
+                        </div>
+                        <div class="chart-canvas-wrap">
+                            <canvas id="chart-breathing-trace"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-panel" id="panel-pulse-rate">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="chart-accent-dot pulse-dot"></span>
+                                <div class="chart-title">Pulse Rate</div>
+                            </div>
+                            <div class="chart-unit">BPM</div>
+                        </div>
+                        <div class="chart-canvas-wrap">
+                            <canvas id="chart-pulse-rate"></canvas>
+                            <div class="chart-placeholder">Enable Cardio Measurements to display pulse rate telemetry</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-panel" id="panel-arterial-pressure">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="chart-accent-dot arterial-dot"></span>
+                                <div class="chart-title">Arterial Pressure Trace</div>
+                            </div>
+                            <div class="chart-unit">raw trace</div>
+                        </div>
+                        <div class="chart-canvas-wrap">
+                            <canvas id="chart-arterial-pressure"></canvas>
+                            <div class="chart-placeholder">Enable Cardio Measurements to display arterial pressure waveform</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- VIEW 3: SESSION HISTORY & ANALYTICS                           -->
+        <!-- ============================================================= -->
+        <section id="view-history" class="view-pane">
+            <div class="history-view-container">
+                <!-- View Header with Actions -->
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title">Session History & Analytics</h2>
+                        <p class="view-subtitle">Track your practice consistency, weekly rhythm, and physiological logs.</p>
+                    </div>
+                    <div class="history-actions-row">
+                        <button type="button" class="btn-secondary-subtle" id="btn-export-history" title="Export session history to JSON">
+                            <span class="btn-icon">📥</span> Export JSON
+                        </button>
+                        <button type="button" class="btn-secondary-subtle btn-danger-subtle" id="btn-clear-history" title="Clear all session history">
+                            <span class="btn-icon">🗑</span> Clear History
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Section A: Summary Metric Cards (5 cards) -->
+                <div class="history-analytics-grid">
+                    <div class="analytics-card" id="card-total-sessions">
+                        <div class="analytics-meta">
+                            <span class="analytics-label">Total Sessions</span>
+                            <span class="analytics-badge">Volume</span>
+                        </div>
+                        <div class="analytics-value-row">
+                            <span class="analytics-number" id="analytics-total-sessions">0</span>
+                            <span class="analytics-unit">practices</span>
+                        </div>
+                        <div class="analytics-caption" id="analytics-total-sessions-caption">Valid recorded sessions</div>
+                    </div>
+
+                    <div class="analytics-card" id="card-total-time">
+                        <div class="analytics-meta">
+                            <span class="analytics-label">Total Practice</span>
+                            <span class="analytics-badge">Duration</span>
+                        </div>
+                        <div class="analytics-value-row">
+                            <span class="analytics-number" id="analytics-total-time">0m</span>
+                            <span class="analytics-unit">completed</span>
+                        </div>
+                        <div class="analytics-caption" id="analytics-total-time-caption">Time in mindfulness</div>
+                    </div>
+
+                    <div class="analytics-card" id="card-avg-session">
+                        <div class="analytics-meta">
+                            <span class="analytics-label">Average Session</span>
+                            <span class="analytics-badge">Pacing</span>
+                        </div>
+                        <div class="analytics-value-row">
+                            <span class="analytics-number" id="analytics-avg-session">0m 0s</span>
+                            <span class="analytics-unit">avg duration</span>
+                        </div>
+                        <div class="analytics-caption" id="analytics-avg-session-caption">Per completed session</div>
+                    </div>
+
+                    <div class="analytics-card" id="card-current-streak">
+                        <div class="analytics-meta">
+                            <span class="analytics-label">Current Streak</span>
+                            <span class="analytics-badge streak-badge">🔥 Active</span>
+                        </div>
+                        <div class="analytics-value-row">
+                            <span class="analytics-number" id="analytics-current-streak">0</span>
+                            <span class="analytics-unit">days</span>
+                        </div>
+                        <div class="analytics-caption" id="analytics-current-streak-caption">Consecutive practice days</div>
+                    </div>
+
+                    <div class="analytics-card" id="card-best-streak">
+                        <div class="analytics-meta">
+                            <span class="analytics-label">Best Streak</span>
+                            <span class="analytics-badge">Record</span>
+                        </div>
+                        <div class="analytics-value-row">
+                            <span class="analytics-number" id="analytics-best-streak">0</span>
+                            <span class="analytics-unit">days</span>
+                        </div>
+                        <div class="analytics-caption" id="analytics-best-streak-caption">Longest consecutive run</div>
+                    </div>
+                </div>
+
+                <!-- Section B & C: Weekly Activity Chart + Monthly Practice Calendar -->
+                <div class="history-dual-grid">
+                    <!-- Left: Weekly Activity Chart -->
+                    <div class="history-section-card weekly-activity-card">
+                        <div class="section-card-header">
+                            <div>
+                                <h3 class="section-card-title">Weekly Activity</h3>
+                                <p class="section-card-subtitle" id="weekly-range-label">Monday – Sunday</p>
+                            </div>
+                            <span class="section-card-badge" id="weekly-total-badge">0 this week</span>
+                        </div>
+                        <div class="chart-wrap weekly-chart-wrap">
+                            <canvas id="weekly-activity-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Right: Monthly Practice Calendar -->
+                    <div class="history-section-card calendar-card">
+                        <div class="section-card-header">
+                            <div>
+                                <h3 class="section-card-title">Practice Calendar</h3>
+                                <p class="section-card-subtitle">Active practice days</p>
+                            </div>
+                            <div class="calendar-nav-controls">
+                                <button type="button" class="btn-cal-nav" id="btn-cal-prev" title="Previous Month">‹</button>
+                                <span class="calendar-month-label" id="calendar-month-label">November 2026</span>
+                                <button type="button" class="btn-cal-nav" id="btn-cal-next" title="Next Month">›</button>
+                            </div>
+                        </div>
+                        <div class="calendar-grid-container" id="calendar-grid-container">
+                            <!-- Populated dynamically: weekday headers + day cells -->
+                        </div>
+                        <div class="calendar-legend-row">
+                            <div class="legend-item"><span class="legend-dot active-dot"></span> Practice Day</div>
+                            <div class="legend-item"><span class="legend-dot today-dot"></span> Today</div>
+                            <button type="button" class="btn-clear-date-filter" id="btn-clear-date-filter" hidden>Reset Date Filter</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section D: Personal Insights -->
+                <div class="history-section-card insights-card">
+                    <div class="section-card-header">
+                        <div class="insights-title-group">
+                            <span class="insights-icon">✦</span>
+                            <div>
+                                <h3 class="section-card-title">Personal Insights</h3>
+                                <p class="section-card-subtitle">Deterministic observations based on your recorded practice.</p>
+                            </div>
+                        </div>
+                        <span class="insights-tag">Data-Backed</span>
+                    </div>
+                    <div class="insights-list" id="insights-list">
+                        <!-- Dynamically generated rule-based observations -->
+                    </div>
+                </div>
+
+                <!-- Section E: Historical Session List -->
+                <div class="history-section-card session-log-card">
+                    <div class="section-card-header">
+                        <div>
+                            <h3 class="section-card-title">Session Log</h3>
+                            <p class="section-card-subtitle" id="session-log-filter-text">Showing all sessions</p>
+                        </div>
+                        <button type="button" class="btn-reset-filter" id="btn-reset-filter" hidden>Show All Sessions</button>
+                    </div>
+                    <div id="history-content-area" class="history-content-area">
+                        <!-- Populated dynamically via renderer.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- VIEW 4: SETTINGS & PREFERENCES                                -->
+        <!-- ============================================================= -->
+        <section id="view-settings" class="view-pane">
+            <div class="settings-view-container">
+                <div class="view-header-row">
+                    <div>
+                        <h2 class="view-title">Settings & Preferences</h2>
+                        <p class="view-subtitle">Manage appearance, optical hardware constraints, and privacy preferences.</p>
+                    </div>
+                </div>
+
+                <div class="settings-grid">
+                    <!-- Appearance Card -->
+                    <div class="settings-card">
+                        <h3 class="settings-card-title">Appearance & Motion</h3>
+                        <div class="setting-row">
+                            <div class="setting-info">
+                                <span class="setting-name">Reduced Motion</span>
+                                <span class="setting-desc">Minimize breathing orb and ambient pulse animations</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="setting-reduced-motion">
+                                <span class="slider-round"></span>
+                            </label>
+                        </div>
+                        <div class="setting-row">
+                            <div class="setting-info">
+                                <span class="setting-name">Ambient Forest Glow</span>
+                                <span class="setting-desc">Display subtle calming atmospheric background gradients</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="setting-ambient-glow" checked>
+                                <span class="slider-round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Card -->
+                    <div class="settings-card">
+                        <h3 class="settings-card-title">Privacy & Processing</h3>
+                        <div class="privacy-callout">
+                            <div class="privacy-icon-badge">🔒</div>
+                            <div class="privacy-callout-text">
+                                <strong>100% On-Device Processing</strong>
+                                <p>All optical video frames are processed exclusively in volatile local memory by the native Presage SmartSpectra engine. No video streams, facial imagery, or biometric vectors are ever stored or transmitted off your machine.</p>
+                            </div>
+                        </div>
+                        <div class="setting-row" style="margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-subtle);">
+                            <div class="setting-info">
+                                <span class="setting-name">Onboarding & Consent Flow</span>
+                                <span class="setting-desc">Revisit the first-run guide, privacy consent, and camera positioning setup</span>
+                            </div>
+                            <button type="button" class="btn-secondary-subtle" id="btn-reopen-onboarding">Replay Onboarding</button>
+                        </div>
+                    </div>
+
+                    <!-- Camera & Hardware Info -->
+                    <div class="settings-card">
+                        <h3 class="settings-card-title">Optical Hardware Specs</h3>
+                        <div class="setting-row">
+                            <div class="setting-info">
+                                <span class="setting-name">Exposure Locking</span>
+                                <span class="setting-desc">Manual 39ms exposure prevents auto-slowdown under indoor lighting</span>
+                            </div>
+                            <span class="spec-pill">Lock 30 FPS Active</span>
+                        </div>
+                        <div class="setting-row">
+                            <div class="setting-info">
+                                <span class="setting-name">SDK Frame Rate Threshold</span>
+                                <span class="setting-desc">SmartSpectra continuous physiological sensing requirement</span>
+                            </div>
+                            <span class="spec-pill">≥ 25 FPS Required</span>
+                        </div>
+                    </div>
+
+                    <!-- Data Management -->
+                    <div class="settings-card">
+                        <h3 class="settings-card-title">Data Management</h3>
+                        <div class="setting-row">
+                            <div class="setting-info">
+                                <span class="setting-name">Export Session Logs</span>
+                                <span class="setting-desc">Download session timestamps and recorded metrics in JSON format</span>
+                            </div>
+                            <button type="button" class="btn-secondary-subtle" id="btn-export-data">Export JSON</button>
+                        </div>
+                        <div class="setting-row">
+                            <div class="setting-info">
+                                <span class="setting-name">Purge Local History</span>
+                                <span class="setting-desc">Reset all stored session logs from local application storage</span>
+                            </div>
+                            <button type="button" class="btn-danger-subtle" id="btn-purge-data">Purge Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- App Shell Footer -->
+    <footer class="app-footer">
+        <div class="footer-left">
+            <span class="footer-brand-title">VYTA</span>
+            <span class="footer-dot">•</span>
+            <span class="footer-note">Contactless Physiological Awareness</span>
+        </div>
+        <div class="footer-right">
+            <span class="footer-sdk-badge">Presage SmartSpectra v3.4</span>
+        </div>
+    </footer>
+
+    <!-- ================================================================= -->
+    <!-- ONBOARDING & FIRST-RUN OVERLAY                                      -->
+    <!-- ================================================================= -->
+    <div id="onboarding-overlay" class="onboarding-overlay" hidden aria-modal="true" role="dialog" aria-label="VYTA Welcome and Setup">
+        <div class="onboarding-backdrop"></div>
+        <div class="onboarding-card">
+            <!-- Top Onboarding Header & Steps Bar -->
+            <div class="onboarding-header">
+                <div class="onboarding-brand">
+                    <span class="brand-orb-symbol"></span>
+                    <span class="brand-name">VYTA</span>
+                    <span class="brand-divider">/</span>
+                    <span class="brand-tagline">Onboarding</span>
+                </div>
+
+                <!-- 5-Step Stepper -->
+                <div class="onboarding-stepper" role="tablist" aria-label="Onboarding Progress">
+                    <div class="step-dot active" data-step="1" title="Step 1: Welcome">
+                        <span class="step-num">1</span>
+                        <span class="step-label">Welcome</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-dot" data-step="2" title="Step 2: How It Works">
+                        <span class="step-num">2</span>
+                        <span class="step-label">How It Works</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-dot" data-step="3" title="Step 3: Privacy & Consent">
+                        <span class="step-num">3</span>
+                        <span class="step-label">Privacy</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-dot" data-step="4" title="Step 4: Camera Setup">
+                        <span class="step-num">4</span>
+                        <span class="step-label">Setup</span>
+                    </div>
+                    <div class="step-line"></div>
+                    <div class="step-dot" data-step="5" title="Step 5: Readiness">
+                        <span class="step-num">5</span>
+                        <span class="step-label">Ready</span>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-onboarding-skip" id="btn-onboarding-skip" title="Skip setup and go directly to breathing">Skip</button>
+            </div>
+
+            <!-- Dynamic Step Content Body -->
+            <div class="onboarding-body">
+
+                <!-- STEP 1: WELCOME -->
+                <div class="onboarding-step-pane active" id="ob-step-1" data-step="1">
+                    <div class="ob-welcome-layout">
+                        <div class="ob-hero-orb-wrap">
+                            <div class="ob-ambient-glow"></div>
+                            <div class="ob-hero-orb">
+                                <span class="ob-orb-brand">VYTA</span>
+                            </div>
+                        </div>
+                        <span class="ob-chip">First-Run Experience</span>
+                        <h2 class="ob-title">Find your rhythm.</h2>
+                        <p class="ob-subtitle">An intentional space to explore your breathing patterns, slow down, and reconnect with yourself.</p>
+                        <div class="ob-welcome-actions">
+                            <button type="button" class="btn-primary-ob" id="btn-ob-welcome-next">
+                                <span>Get Started</span>
+                                <span class="btn-arrow">→</span>
+                            </button>
+                            <button type="button" class="btn-secondary-ob" id="btn-ob-welcome-skip">Skip introduction</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: HOW IT WORKS -->
+                <div class="onboarding-step-pane" id="ob-step-2" data-step="2">
+                    <div class="ob-content-layout">
+                        <div class="ob-header-group">
+                            <span class="ob-chip">Understanding the Technology</span>
+                            <h2 class="ob-title">How Contactless Sensing Works</h2>
+                            <p class="ob-subtitle">VYTA uses a compatible optical camera and subtle light variance algorithms to attempt to detect physiological signals without any wearables.</p>
+                        </div>
+
+                        <div class="ob-cards-grid">
+                            <div class="ob-card">
+                                <div class="ob-card-icon">1</div>
+                                <h4 class="ob-card-title">Position in Frame</h4>
+                                <p class="ob-card-text">Position yourself comfortably in front of your camera, centered within the frame at a natural sitting distance.</p>
+                            </div>
+                            <div class="ob-card">
+                                <div class="ob-card-icon">2</div>
+                                <h4 class="ob-card-title">Balanced Ambient Light</h4>
+                                <p class="ob-card-text">Sit comfortably with your face evenly illuminated by ambient room or screen light. Avoid direct harsh backlighting.</p>
+                            </div>
+                            <div class="ob-card">
+                                <div class="ob-card-icon">3</div>
+                                <h4 class="ob-card-title">Signal Evaluation</h4>
+                                <p class="ob-card-text">Begin a session and allow the sensor to evaluate signal clarity. The sensor requires stability to measure accurately.</p>
+                            </div>
+                        </div>
+
+                        <div class="ob-notice-banner">
+                            <span class="ob-notice-icon">ℹ</span>
+                            <div class="ob-notice-text">
+                                <strong>No Guaranteed Measurements:</strong> Optical signal quality depends on camera frame rates, ambient room lighting, facial stillness, and hardware compatibility. VYTA is a wellness awareness tool, not a medical device.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: PRIVACY & INFORMED CONSENT -->
+                <div class="onboarding-step-pane" id="ob-step-3" data-step="3">
+                    <div class="ob-content-layout">
+                        <div class="ob-header-group">
+                            <span class="ob-chip">Transparent & On-Device</span>
+                            <h2 class="ob-title">Privacy & Informed Consent</h2>
+                            <p class="ob-subtitle">We believe physiological wellness technology must be built on verifiable trust and total user control.</p>
+                        </div>
+
+                        <div class="ob-privacy-specs-grid">
+                            <div class="ob-privacy-item">
+                                <div class="ob-privacy-bullet">🔒</div>
+                                <div>
+                                    <strong>100% On-Device Processing</strong>
+                                    <p>All camera frames are processed strictly in volatile local memory by the native C++ SmartSpectra engine. Video is never uploaded, streamed, or stored remotely.</p>
+                                </div>
+                            </div>
+                            <div class="ob-privacy-item">
+                                <div class="ob-privacy-bullet">📹</div>
+                                <div>
+                                    <strong>Session-Based Camera Power</strong>
+                                    <p>The camera is active only when you explicitly start a session. Tracks are completely powered down and stopped immediately when you stop or reset.</p>
+                                </div>
+                            </div>
+                            <div class="ob-privacy-item">
+                                <div class="ob-privacy-bullet">💾</div>
+                                <div>
+                                    <strong>Minimal Local-Only History</strong>
+                                    <p>Only session duration, timestamps, and computed numerical averages are saved in your local computer storage. No facial images or biometric vectors are ever created or saved.</p>
+                                </div>
+                            </div>
+                            <div class="ob-privacy-item">
+                                <div class="ob-privacy-bullet">⏹</div>
+                                <div>
+                                    <strong>Complete User Control</strong>
+                                    <p>You can pause or end any session at any moment. All recorded history can be cleared or exported with a single click in Settings.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Explicit Consent Checkbox -->
+                        <div class="ob-consent-box">
+                            <label class="ob-checkbox-label">
+                                <input type="checkbox" id="ob-consent-checkbox" class="ob-checkbox">
+                                <span class="ob-checkbox-custom"></span>
+                                <span class="ob-checkbox-text">I understand how camera sensing works and agree to continue.</span>
+                            </label>
+                            <button type="button" class="btn-text-link" id="btn-ob-review-privacy">Review Privacy Settings</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: CAMERA SETUP GUIDANCE -->
+                <div class="onboarding-step-pane" id="ob-step-4" data-step="4">
+                    <div class="ob-content-layout">
+                        <div class="ob-header-group">
+                            <span class="ob-chip">Optical Ergonomics</span>
+                            <h2 class="ob-title">Camera Positioning & Environment</h2>
+                            <p class="ob-subtitle">Proper positioning ensures the optical sensor can evaluate micro-color changes clearly.</p>
+                        </div>
+
+                        <div class="ob-guidance-grid">
+                            <!-- Left: Visual Placement Guide Illustration -->
+                            <div class="ob-placement-frame-wrap">
+                                <div class="ob-placement-frame">
+                                    <div class="ob-corner-bracket top-left"></div>
+                                    <div class="ob-corner-bracket top-right"></div>
+                                    <div class="ob-corner-bracket bottom-left"></div>
+                                    <div class="ob-corner-bracket bottom-right"></div>
+                                    
+                                    <div class="ob-face-silhouette">
+                                        <div class="silhouette-head"></div>
+                                        <div class="silhouette-shoulders"></div>
+                                        <div class="silhouette-reticle"></div>
+                                    </div>
+                                    <div class="ob-lighting-indicator">
+                                        <span class="light-ray-left"></span>
+                                        <span class="light-icon">💡</span>
+                                        <span class="light-ray-right"></span>
+                                    </div>
+                                </div>
+                                <div class="ob-placement-disclaimer">Stylized placement guide. Not an active facial scan or biometric recognition.</div>
+                            </div>
+
+                            <!-- Right: Guidance Checklist -->
+                            <div class="ob-guidance-checklist">
+                                <div class="ob-guide-row">
+                                    <span class="guide-check">✓</span>
+                                    <div>
+                                        <strong>Distance (~18–36 inches)</strong>
+                                        <p>Sit comfortably at arm's length so your head and upper chest fill the frame naturally.</p>
+                                    </div>
+                                </div>
+                                <div class="ob-guide-row">
+                                    <span class="guide-check">✓</span>
+                                    <div>
+                                        <strong>Even Frontal Light</strong>
+                                        <p>Face an ambient lamp or soft screen light. Avoid bright windows directly behind you (backlighting).</p>
+                                    </div>
+                                </div>
+                                <div class="ob-guide-row">
+                                    <span class="guide-check">✓</span>
+                                    <div>
+                                        <strong>Clear Visibility</strong>
+                                        <p>Keep your forehead and cheeks unobstructed by hats or hands during sensing.</p>
+                                    </div>
+                                </div>
+                                <div class="ob-guide-row">
+                                    <span class="guide-check">✓</span>
+                                    <div>
+                                        <strong>Relaxed Stillness</strong>
+                                        <p>Breathe normally. Minimizing excessive head movement allows the sensor to detect subtle rhythm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 5: CAMERA READINESS CHECK & FIRST SESSION -->
+                <div class="onboarding-step-pane" id="ob-step-5" data-step="5">
+                    <div class="ob-content-layout">
+                        <div class="ob-header-group">
+                            <span class="ob-chip">Hardware Readiness</span>
+                            <h2 class="ob-title">Camera Check & First Session</h2>
+                            <p class="ob-subtitle">Test camera stream acquisition without starting physiological sensing, or jump straight into guided breathing.</p>
+                        </div>
+
+                        <!-- User-Triggered Camera Readiness Card -->
+                        <div class="ob-readiness-card">
+                            <div class="ob-readiness-header">
+                                <div class="ob-readiness-info">
+                                    <span class="ob-readiness-label">Optical Sensor Status</span>
+                                    <div class="ob-readiness-badge-row">
+                                        <span class="ob-status-badge status-not-checked" id="ob-status-badge">Camera not checked</span>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-check-camera" id="btn-ob-check-camera">
+                                    <span class="btn-icon">📹</span>
+                                    <span>Check Camera</span>
+                                </button>
+                            </div>
+
+                            <div class="ob-diagnostic-log" id="ob-diagnostic-log">
+                                Click <strong>Check Camera</strong> above to test device availability and test stream acquisition. Camera is never started automatically.
+                            </div>
+
+                            <!-- Troubleshooting container (hidden by default) -->
+                            <div class="ob-troubleshoot-box" id="ob-troubleshoot-box" hidden>
+                                <strong>Troubleshooting suggestions:</strong>
+                                <ul id="ob-troubleshoot-list">
+                                    <li>Ensure your webcam is connected and unblocked by a privacy slider.</li>
+                                    <li>Check Windows Settings → Privacy & Security → Camera to ensure desktop app access is enabled.</li>
+                                    <li>Close other applications that might have an exclusive lock on the camera.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- First Session Choice (Two distinct paths) -->
+                        <div class="ob-first-session-choice">
+                            <span class="choice-title">Choose Your First Experience:</span>
+                            <div class="choice-options-grid">
+                                <!-- Option A: Guided Breathing (No camera needed!) -->
+                                <div class="choice-card recommended" id="btn-ob-start-breathing" role="button" tabindex="0">
+                                    <div class="choice-card-top">
+                                        <span class="choice-badge">Recommended</span>
+                                        <span class="choice-tag">Zero Camera Required</span>
+                                    </div>
+                                    <h4 class="choice-name">Guided Breathing Canvas</h4>
+                                    <p class="choice-desc">Begin right away with the Adaptive Breathing Canvas. Experience smooth 4-2-6 breathing pacing with pure relaxation.</p>
+                                    <span class="choice-cta">Start Guided Breathing →</span>
+                                </div>
+
+                                <!-- Option B: Live Sensing Workstation -->
+                                <div class="choice-card" id="btn-ob-start-sensing" role="button" tabindex="0">
+                                    <div class="choice-card-top">
+                                        <span class="choice-tag">Optical Hardware</span>
+                                    </div>
+                                    <h4 class="choice-name">Live Sensing Workstation</h4>
+                                    <p class="choice-desc">Open the live telemetry workstation with live camera preview and pulse/respiration waveform tracking. Camera starts only when you click Start.</p>
+                                    <span class="choice-cta">Open Sensor Workstation →</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Onboarding Navigation Footer -->
+            <div class="onboarding-footer">
+                <button type="button" class="btn-ob-nav btn-ob-back" id="btn-ob-back" hidden>
+                    <span>← Back</span>
+                </button>
+                <div class="onboarding-footer-center">
+                    <span class="ob-step-indicator-text" id="ob-step-indicator-text">Step 1 of 5</span>
+                </div>
+                <button type="button" class="btn-ob-nav btn-ob-next" id="btn-ob-next">
+                    <span>Continue →</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- SESSION DETAILS MODAL                                             -->
+    <!-- ================================================================= -->
+    <div id="session-detail-modal" class="session-modal-overlay" hidden aria-modal="true" role="dialog" aria-label="Session Details">
+        <div class="session-modal-backdrop" id="session-modal-backdrop"></div>
+        <div class="session-modal-card">
+            <div class="session-modal-header">
+                <div class="modal-title-group">
+                    <span class="modal-badge" id="modal-session-type-badge">Guided Breathing</span>
+                    <h3 class="modal-title" id="modal-session-title">Session Details</h3>
+                </div>
+                <button type="button" class="btn-modal-close" id="btn-modal-close" title="Close details">✕</button>
+            </div>
+            <div class="session-modal-body" id="session-modal-body">
+                <!-- Dynamically populated with metadata, metrics, notes -->
+            </div>
+            <div class="session-modal-footer">
+                <button type="button" class="btn-secondary-subtle btn-danger-subtle" id="btn-modal-delete">Delete Session</button>
+                <button type="button" class="btn-primary-subtle" id="btn-modal-done">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./dist/renderer.bundle.js"></script>
+</body>
+</html>

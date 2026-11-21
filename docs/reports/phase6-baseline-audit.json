@@ -1,0 +1,1876 @@
+{
+  "timestamp": "2026-11-21T16:04:13.889Z",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "nodeVersion": "24.18.0",
+    "electronVersion": "43.2.0",
+    "chromeVersion": "150.0.7871.129"
+  },
+  "stages": {
+    "deviceEnumeration": {
+      "count": 1,
+      "cameras": [
+        {
+          "deviceId": "a2f8386fc978086c56c904db45daa012cde9c7956e0815ed07825c6e27470e6d",
+          "label": "USB2.0 HD UVC WebCam (3277:0029)",
+          "groupId": "216d7589673e0dee38993e7e4b1cca61063315317de66dc42a54ad4ac1b38e29"
+        }
+      ]
+    },
+    "cameraAcquisition": {
+      "success": true,
+      "label": "USB2.0 HD UVC WebCam (3277:0029)",
+      "settings": {
+        "aspectRatio": 1.3333333333333333,
+        "brightness": 50,
+        "colorTemperature": 4500,
+        "contrast": 50,
+        "deviceId": "a2f8386fc978086c56c904db45daa012cde9c7956e0815ed07825c6e27470e6d",
+        "exposureMode": "continuous",
+        "exposureTime": 156.25,
+        "facingMode": "user",
+        "frameRate": 30,
+        "groupId": "216d7589673e0dee38993e7e4b1cca61063315317de66dc42a54ad4ac1b38e29",
+        "height": 480,
+        "resizeMode": "none",
+        "saturation": 50,
+        "sharpness": 50,
+        "whiteBalanceMode": "continuous",
+        "width": 640
+      },
+      "capabilities": {
+        "aspectRatio": {
+          "max": 1280,
+          "min": 0.001388888888888889
+        },
+        "brightness": {
+          "max": 100,
+          "min": 0,
+          "step": 1
+        },
+        "colorTemperature": {
+          "max": 6500,
+          "min": 2500,
+          "step": 10
+        },
+        "contrast": {
+          "max": 100,
+          "min": 0,
+          "step": 1
+        },
+        "deviceId": "a2f8386fc978086c56c904db45daa012cde9c7956e0815ed07825c6e27470e6d",
+        "exposureMode": [
+          "continuous",
+          "manual"
+        ],
+        "exposureTime": {
+          "max": 10000,
+          "min": 39.0625,
+          "step": 39.0625
+        },
+        "facingMode": [
+          "user"
+        ],
+        "frameRate": {
+          "max": 30,
+          "min": 0
+        },
+        "groupId": "216d7589673e0dee38993e7e4b1cca61063315317de66dc42a54ad4ac1b38e29",
+        "height": {
+          "max": 720,
+          "min": 1
+        },
+        "resizeMode": [
+          "none",
+          "crop-and-scale"
+        ],
+        "saturation": {
+          "max": 100,
+          "min": 0,
+          "step": 1
+        },
+        "sharpness": {
+          "max": 100,
+          "min": 0,
+          "step": 1
+        },
+        "whiteBalanceMode": [
+          "continuous",
+          "manual"
+        ],
+        "width": {
+          "max": 1280,
+          "min": 1
+        }
+      },
+      "frameCount": 47,
+      "elapsedSec": 3.019,
+      "measuredFps": 15.568068896985757,
+      "intervalsMin": 14.799999999988358,
+      "intervalsMax": 81.59999999997672
+    },
+    "exposureAndLighting": {
+      "canSetExposure": true,
+      "manualApplied": true,
+      "manualError": null,
+      "lumaStats": {
+        "meanY": 113.97175390624835,
+        "stdDev": 42.79016609366636,
+        "p10": 64.036,
+        "p90": 181.86499999999998,
+        "min": 31.37,
+        "max": 247.337
+      }
+    },
+    "livePipelineSamples": [
+      {
+        "second": 2,
+        "state": "VERIFYING_CAMERA",
+        "statusText": "VERIFYING_CAMERA",
+        "validationText": "Camera frame rate stable at 29.8 FPS (1/2s)…",
+        "hasError": false,
+        "errCode": "—",
+        "errMsg": "",
+        "metricsCount": 0,
+        "latestBreathing": null,
+        "latestPulse": null,
+        "validationHistoryCount": 0,
+        "latestValidation": null,
+        "facialLum": null,
+        "facialMetrics": null,
+        "liveFps": 30
+      },
+      {
+        "second": 4,
+        "state": "STARTING_SDK",
+        "statusText": "Starting",
+        "validationText": "Starting SmartSpectra processing...",
+        "hasError": false,
+        "errCode": "—",
+        "errMsg": "",
+        "metricsCount": 0,
+        "latestBreathing": null,
+        "latestPulse": null,
+        "validationHistoryCount": 0,
+        "latestValidation": null,
+        "facialLum": 8.4,
+        "facialMetrics": {
+          "mean": 8.4,
+          "median": 8.4,
+          "p10": 8.4,
+          "p90": 8.4,
+          "dynamicRange": 0,
+          "min": 6.5,
+          "max": 9.6,
+          "stdDev": 0.15,
+          "frameStdDev": 0.71,
+          "isOccluded": true,
+          "roi": {
+            "x": 40,
+            "y": 15,
+            "width": 80,
+            "height": 75
+          }
+        },
+        "liveFps": 30
+      },
+      {
+        "second": 6,
+        "state": "RUNNING",
+        "statusText": "RUNNING",
+        "validationText": "Too Dark: Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+        "hasError": false,
+        "errCode": "—",
+        "errMsg": "",
+        "metricsCount": 0,
+        "latestBreathing": null,
+        "latestPulse": null,
+        "validationHistoryCount": 46,
+        "latestValidation": {
+          "code": 5,
+          "name": "TooDark",
+          "title": "Too Dark",
+          "hint": "Increase light on face.",
+          "guidance": "Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+          "facialMetrics": {
+            "mean": 8.4,
+            "median": 8.4,
+            "p10": 8.4,
+            "p90": 8.4,
+            "dynamicRange": 0,
+            "min": 6.7,
+            "max": 8.4,
+            "stdDev": 0.15,
+            "frameStdDev": 0.7,
+            "isOccluded": true,
+            "roi": {
+              "x": 40,
+              "y": 15,
+              "width": 80,
+              "height": 75
+            }
+          },
+          "timestampUs": 1795277080354080,
+          "wallClockIso": "2026-11-21T16:04:40.448Z"
+        },
+        "facialLum": 8.4,
+        "facialMetrics": {
+          "mean": 8.4,
+          "median": 8.4,
+          "p10": 8.4,
+          "p90": 8.4,
+          "dynamicRange": 0,
+          "min": 6.7,
+          "max": 8.4,
+          "stdDev": 0.15,
+          "frameStdDev": 0.7,
+          "isOccluded": true,
+          "roi": {
+            "x": 40,
+            "y": 15,
+            "width": 80,
+            "height": 75
+          }
+        },
+        "liveFps": 30
+      },
+      {
+        "second": 8,
+        "state": "RUNNING",
+        "statusText": "RUNNING",
+        "validationText": "Too Dark: Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+        "hasError": true,
+        "errCode": "FRAME_RATE_LOW",
+        "errMsg": "Camera is running slow (24.7 FPS, minimum 25 FPS required). Increase room lighting or pick another camera.",
+        "metricsCount": 0,
+        "latestBreathing": null,
+        "latestPulse": null,
+        "validationHistoryCount": 97,
+        "latestValidation": {
+          "code": 5,
+          "name": "TooDark",
+          "title": "Too Dark",
+          "hint": "Increase light on face.",
+          "guidance": "Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+          "facialMetrics": {
+            "mean": 8.4,
+            "median": 8.4,
+            "p10": 8.4,
+            "p90": 8.4,
+            "dynamicRange": 0,
+            "min": 6.8,
+            "max": 8.4,
+            "stdDev": 0.14,
+            "frameStdDev": 0.31,
+            "isOccluded": true,
+            "roi": {
+              "x": 40,
+              "y": 15,
+              "width": 80,
+              "height": 75
+            }
+          },
+          "timestampUs": 1795277082418056,
+          "wallClockIso": "2026-11-21T16:04:42.485Z"
+        },
+        "facialLum": 8.4,
+        "facialMetrics": {
+          "mean": 8.4,
+          "median": 8.4,
+          "p10": 8.4,
+          "p90": 8.4,
+          "dynamicRange": 0,
+          "min": 6.8,
+          "max": 8.4,
+          "stdDev": 0.14,
+          "frameStdDev": 0.31,
+          "isOccluded": true,
+          "roi": {
+            "x": 40,
+            "y": 15,
+            "width": 80,
+            "height": 75
+          }
+        },
+        "liveFps": 30
+      },
+      {
+        "second": 10,
+        "state": "RUNNING",
+        "statusText": "RUNNING",
+        "validationText": "Too Dark: Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+        "hasError": true,
+        "errCode": "FRAME_RATE_LOW",
+        "errMsg": "Camera is running slow (24.7 FPS, minimum 25 FPS required). Increase room lighting or pick another camera.",
+        "metricsCount": 0,
+        "latestBreathing": null,
+        "latestPulse": null,
+        "validationHistoryCount": 149,
+        "latestValidation": {
+          "code": 5,
+          "name": "TooDark",
+          "title": "Too Dark",
+          "hint": "Increase light on face.",
+          "guidance": "Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+          "facialMetrics": {
+            "mean": 8.4,
+            "median": 8.4,
+            "p10": 8.4,
+            "p90": 8.4,
+            "dynamicRange": 0,
+            "min": 6.8,
+            "max": 8.5,
+            "stdDev": 0.18,
+            "frameStdDev": 0.67,
+            "isOccluded": true,
+            "roi": {
+              "x": 40,
+              "y": 15,
+              "width": 80,
+              "height": 75
+            }
+          },
+          "timestampUs": 1795277084417904,
+          "wallClockIso": "2026-11-21T16:04:44.521Z"
+        },
+        "facialLum": 8.4,
+        "facialMetrics": {
+          "mean": 8.4,
+          "median": 8.4,
+          "p10": 8.4,
+          "p90": 8.4,
+          "dynamicRange": 0,
+          "min": 6.8,
+          "max": 8.5,
+          "stdDev": 0.18,
+          "frameStdDev": 0.67,
+          "isOccluded": true,
+          "roi": {
+            "x": 40,
+            "y": 15,
+            "width": 80,
+            "height": 75
+          }
+        },
+        "liveFps": 30
+      },
+      {
+        "second": 12,
+        "state": "RUNNING",
+        "statusText": "RUNNING",
+        "validationText": "Too Dark: Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+        "hasError": true,
+        "errCode": "FRAME_RATE_LOW",
+        "errMsg": "Camera is running slow (24.7 FPS, minimum 25 FPS required). Increase room lighting or pick another camera.",
+        "metricsCount": 0,
+        "latestBreathing": null,
+        "latestPulse": null,
+        "validationHistoryCount": 196,
+        "latestValidation": {
+          "code": 5,
+          "name": "TooDark",
+          "title": "Too Dark",
+          "hint": "Increase light on face.",
+          "guidance": "Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+          "facialMetrics": {
+            "mean": 8.4,
+            "median": 8.4,
+            "p10": 8.4,
+            "p90": 8.4,
+            "dynamicRange": 0,
+            "min": 6.8,
+            "max": 8.4,
+            "stdDev": 0.15,
+            "frameStdDev": 0.29,
+            "isOccluded": true,
+            "roi": {
+              "x": 40,
+              "y": 15,
+              "width": 80,
+              "height": 75
+            }
+          },
+          "timestampUs": 1795277086497604,
+          "wallClockIso": "2026-11-21T16:04:46.557Z"
+        },
+        "facialLum": 8.4,
+        "facialMetrics": {
+          "mean": 8.4,
+          "median": 8.4,
+          "p10": 8.4,
+          "p90": 8.4,
+          "dynamicRange": 0,
+          "min": 6.8,
+          "max": 8.4,
+          "stdDev": 0.15,
+          "frameStdDev": 0.29,
+          "isOccluded": true,
+          "roi": {
+            "x": 40,
+            "y": 15,
+            "width": 80,
+            "height": 75
+          }
+        },
+        "liveFps": 30
+      },
+      {
+        "second": 14,
+        "state": "RUNNING",
+        "statusText": "RUNNING",
+        "validationText": "Too Dark: Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+        "hasError": true,
+        "errCode": "FRAME_RATE_LOW",
+        "errMsg": "Camera is running slow (24.6 FPS, minimum 25 FPS required). Increase room lighting or pick another camera.",
+        "metricsCount": 0,
+        "latestBreathing": null,
+        "latestPulse": null,
+        "validationHistoryCount": 251,
+        "latestValidation": {
+          "code": 5,
+          "name": "TooDark",
+          "title": "Too Dark",
+          "hint": "Increase light on face.",
+          "guidance": "Webcam privacy shutter appears closed or lens is covered. Open the physical shutter slider on your webcam.",
+          "facialMetrics": {
+            "mean": 8.4,
+            "median": 8.4,
+            "p10": 8.4,
+            "p90": 8.4,
+            "dynamicRange": 0,
+            "min": 6.2,
+            "max": 8.5,
+            "stdDev": 0.22,
+            "frameStdDev": 0.67,
+            "isOccluded": true,
+            "roi": {
+              "x": 40,
+              "y": 15,
+              "width": 80,
+              "height": 75
+            }
+          },
+          "timestampUs": 1795277088497152,
+          "wallClockIso": "2026-11-21T16:04:48.577Z"
+        },
+        "facialLum": 8.4,
+        "facialMetrics": {
+          "mean": 8.4,
+          "median": 8.4,
+          "p10": 8.4,
+          "p90": 8.4,
+          "dynamicRange": 0,
+          "min": 6.2,
+          "max": 8.5,
+          "stdDev": 0.22,
+          "frameStdDev": 0.67,
+          "isOccluded": true,
+          "roi": {
+            "x": 40,
+            "y": 15,
+            "width": 80,
+            "height": 75
+          }
+        },
+        "liveFps": 30
+      }
+    ],
+    "teardown": {
+      "settledState": "IDLE",
+      "settingsIsNull": true,
+      "hasSrcObject": false,
+      "tracksLive": false
+    }
+  },
+  "logs": [
+    {
+      "level": 1,
+      "message": "[VYTA Picker] Available cameras: [object Object]",
+      "ts": 1795277068141
+    },
+    {
+      "level": 1,
+      "message": "[VYTA Picker] Selected deviceId prefix: a2f8386f",
+      "ts": 1795277068142
+    },
+    {
+      "level": 1,
+      "message": "[VYTA State] -> ACQUIRING_CAMERA",
+      "ts": 1795277073581
+    },
+    {
+      "level": 1,
+      "message": "[VYTA Picker] Available cameras: [object Object]",
+      "ts": 1795277073615
+    },
+    {
+      "level": 1,
+      "message": "[VYTA Picker] Selected deviceId prefix: a2f8386f",
+      "ts": 1795277073615
+    },
+    {
+      "level": 1,
+      "message": "[VYTA Camera] Requesting stream with constraints: {\"width\":{\"ideal\":1280},\"height\":{\"ideal\":720},\"frameRate\":{\"ideal\":30},\"deviceId\":{\"exact\":\"a2f8386fc978086c56c904db45daa012cde9c7956e0815ed07825c6e27470e6d\"}}",
+      "ts": 1795277073615
+    },
+    {
+      "level": 1,
+      "message": "[VYTA Camera] Applied Lock 30 FPS mode constraints: [object Object]",
+      "ts": 1795277074043
+    },
+    {
+      "level": 1,
+      "message": "[VYTA Camera] Active track settings: [object Object]",
+      "ts": 1795277074044
+    },
+    {
+      "level": 1,
+      "message": "[VYTA Picker] Available cameras: [object Object]",
+      "ts": 1795277074075
+    },
+    {
+      "level": 1,
+      "message": "[VYTA Picker] Selected deviceId prefix: a2f8386f",
+      "ts": 1795277074076
+    },
+    {
+      "level": 1,
+      "message": "[VYTA State] -> VERIFYING_CAMERA",
+      "ts": 1795277074076
+    },
+    {
+      "level": 1,
+      "message": "[VYTA] Checking camera FPS stability (>= 25 FPS for 2 seconds)...",
+      "ts": 1795277074109
+    },
+    {
+      "level": 1,
+      "message": "[VYTA State] -> STARTING_SDK",
+      "ts": 1795277076122
+    },
+    {
+      "level": 1,
+      "message": "[VYTA] Software gain pipeline active (2.5x GPU brightness filter for Lock 30 FPS)",
+      "ts": 1795277076133
+    },
+    {
+      "level": 1,
+      "message": "[sample] processingStatus -> Idle (1)",
+      "ts": 1795277078454
+    },
+    {
+      "level": 1,
+      "message": "[sample] processingStatus -> Starting (2)",
+      "ts": 1795277078455
+    },
+    {
+      "level": 1,
+      "message": "[sample] processingStatus -> Running (3)",
+      "ts": 1795277078587
+    },
+    {
+      "level": 1,
+      "message": "[VYTA State] -> RUNNING",
+      "ts": 1795277078587
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Good Signal (0) ts=1795277078497000 hint=Hold still and record.",
+      "ts": 1795277078587
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus No Face Found (1) ts=1795277078561007 hint=No face found.",
+      "ts": 1795277078587
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus No Face Found (1) ts=1795277078593569 hint=No face found.",
+      "ts": 1795277078650
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277078625857 hint=Increase light on face.",
+      "ts": 1795277078694
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277078690153 hint=Increase light on face.",
+      "ts": 1795277078743
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277078721937 hint=Increase light on face.",
+      "ts": 1795277078840
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277078786669 hint=Increase light on face.",
+      "ts": 1795277078894
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277078865751 hint=Increase light on face.",
+      "ts": 1795277078938
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277078898096 hint=Increase light on face.",
+      "ts": 1795277078973
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277078929157 hint=Increase light on face.",
+      "ts": 1795277079014
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277078962281 hint=Increase light on face.",
+      "ts": 1795277079053
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079025532 hint=Increase light on face.",
+      "ts": 1795277079090
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079058023 hint=Increase light on face.",
+      "ts": 1795277079128
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079089116 hint=Increase light on face.",
+      "ts": 1795277079171
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079121943 hint=Increase light on face.",
+      "ts": 1795277079217
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079153759 hint=Increase light on face.",
+      "ts": 1795277079263
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079218039 hint=Increase light on face.",
+      "ts": 1795277079311
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079266005 hint=Increase light on face.",
+      "ts": 1795277079351
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079298063 hint=Increase light on face.",
+      "ts": 1795277079398
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079330296 hint=Increase light on face.",
+      "ts": 1795277079446
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079393191 hint=Increase light on face.",
+      "ts": 1795277079492
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079425840 hint=Increase light on face.",
+      "ts": 1795277079535
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079490219 hint=Increase light on face.",
+      "ts": 1795277079573
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079522344 hint=Increase light on face.",
+      "ts": 1795277079609
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079585238 hint=Increase light on face.",
+      "ts": 1795277079644
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079617123 hint=Increase light on face.",
+      "ts": 1795277079685
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079665502 hint=Increase light on face.",
+      "ts": 1795277079722
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079698529 hint=Increase light on face.",
+      "ts": 1795277079757
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079729237 hint=Increase light on face.",
+      "ts": 1795277079788
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079761395 hint=Increase light on face.",
+      "ts": 1795277079820
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079793985 hint=Increase light on face.",
+      "ts": 1795277079854
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079826240 hint=Increase light on face.",
+      "ts": 1795277079892
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079857430 hint=Increase light on face.",
+      "ts": 1795277079923
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079889603 hint=Increase light on face.",
+      "ts": 1795277079962
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079921828 hint=Increase light on face.",
+      "ts": 1795277079998
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079954148 hint=Increase light on face.",
+      "ts": 1795277080043
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277079985519 hint=Increase light on face.",
+      "ts": 1795277080087
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080017540 hint=Increase light on face.",
+      "ts": 1795277080124
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080065881 hint=Increase light on face.",
+      "ts": 1795277080163
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080130380 hint=Increase light on face.",
+      "ts": 1795277080207
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080161655 hint=Increase light on face.",
+      "ts": 1795277080240
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080193962 hint=Increase light on face.",
+      "ts": 1795277080279
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080226575 hint=Increase light on face.",
+      "ts": 1795277080320
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080289573 hint=Increase light on face.",
+      "ts": 1795277080364
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080321646 hint=Increase light on face.",
+      "ts": 1795277080401
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080354080 hint=Increase light on face.",
+      "ts": 1795277080453
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080386497 hint=Increase light on face.",
+      "ts": 1795277080496
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080418139 hint=Increase light on face.",
+      "ts": 1795277080544
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080498587 hint=Increase light on face.",
+      "ts": 1795277080582
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080529478 hint=Increase light on face.",
+      "ts": 1795277080625
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080594058 hint=Increase light on face.",
+      "ts": 1795277080675
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080625683 hint=Increase light on face.",
+      "ts": 1795277080714
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080657979 hint=Increase light on face.",
+      "ts": 1795277080752
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080721448 hint=Increase light on face.",
+      "ts": 1795277080798
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080753835 hint=Increase light on face.",
+      "ts": 1795277080835
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080786496 hint=Increase light on face.",
+      "ts": 1795277080884
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080818218 hint=Increase light on face.",
+      "ts": 1795277080926
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080866033 hint=Increase light on face.",
+      "ts": 1795277080968
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080929556 hint=Increase light on face.",
+      "ts": 1795277081011
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080962193 hint=Increase light on face.",
+      "ts": 1795277081053
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277080994510 hint=Increase light on face.",
+      "ts": 1795277081090
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081057351 hint=Increase light on face.",
+      "ts": 1795277081123
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081090264 hint=Increase light on face.",
+      "ts": 1795277081205
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081122135 hint=Increase light on face.",
+      "ts": 1795277081243
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081153614 hint=Increase light on face.",
+      "ts": 1795277081285
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081217418 hint=Increase light on face.",
+      "ts": 1795277081318
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081265936 hint=Increase light on face.",
+      "ts": 1795277081355
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081328951 hint=Increase light on face.",
+      "ts": 1795277081397
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081361956 hint=Increase light on face.",
+      "ts": 1795277081435
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081393985 hint=Increase light on face.",
+      "ts": 1795277081469
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081425899 hint=Increase light on face.",
+      "ts": 1795277081503
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081457887 hint=Increase light on face.",
+      "ts": 1795277081535
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081489930 hint=Increase light on face.",
+      "ts": 1795277081573
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081553774 hint=Increase light on face.",
+      "ts": 1795277081612
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081585230 hint=Increase light on face.",
+      "ts": 1795277081648
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081617219 hint=Increase light on face.",
+      "ts": 1795277081684
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081665932 hint=Increase light on face.",
+      "ts": 1795277081724
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081697269 hint=Increase light on face.",
+      "ts": 1795277081761
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081729562 hint=Increase light on face.",
+      "ts": 1795277081806
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081761601 hint=Increase light on face.",
+      "ts": 1795277081842
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081794003 hint=Increase light on face.",
+      "ts": 1795277081881
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081858307 hint=Increase light on face.",
+      "ts": 1795277081919
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081889322 hint=Increase light on face.",
+      "ts": 1795277081961
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081921838 hint=Increase light on face.",
+      "ts": 1795277081995
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081953057 hint=Increase light on face.",
+      "ts": 1795277082030
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277081986438 hint=Increase light on face.",
+      "ts": 1795277082061
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082017545 hint=Increase light on face.",
+      "ts": 1795277082106
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082065587 hint=Increase light on face.",
+      "ts": 1795277082141
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082098396 hint=Increase light on face.",
+      "ts": 1795277082185
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082130198 hint=Increase light on face.",
+      "ts": 1795277082225
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082193789 hint=Increase light on face.",
+      "ts": 1795277082269
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082225494 hint=Increase light on face.",
+      "ts": 1795277082309
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082257356 hint=Increase light on face.",
+      "ts": 1795277082344
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082290368 hint=Increase light on face.",
+      "ts": 1795277082377
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082354050 hint=Increase light on face.",
+      "ts": 1795277082419
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082385375 hint=Increase light on face.",
+      "ts": 1795277082453
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082418056 hint=Increase light on face.",
+      "ts": 1795277082491
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082465706 hint=Increase light on face.",
+      "ts": 1795277082526
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082497084 hint=Increase light on face.",
+      "ts": 1795277082575
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082530027 hint=Increase light on face.",
+      "ts": 1795277082614
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082562286 hint=Increase light on face.",
+      "ts": 1795277082657
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082625669 hint=Increase light on face.",
+      "ts": 1795277082703
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082657716 hint=Increase light on face.",
+      "ts": 1795277082747
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082690203 hint=Increase light on face.",
+      "ts": 1795277082784
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082754430 hint=Increase light on face.",
+      "ts": 1795277082825
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082786466 hint=Increase light on face.",
+      "ts": 1795277082860
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082817738 hint=Increase light on face.",
+      "ts": 1795277082909
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082865682 hint=Increase light on face.",
+      "ts": 1795277082950
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082898305 hint=Increase light on face.",
+      "ts": 1795277082999
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082929147 hint=Increase light on face.",
+      "ts": 1795277083042
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277082994008 hint=Increase light on face.",
+      "ts": 1795277083078
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083025394 hint=Increase light on face.",
+      "ts": 1795277083111
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083089386 hint=Increase light on face.",
+      "ts": 1795277083159
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083121758 hint=Increase light on face.",
+      "ts": 1795277083198
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083153902 hint=Increase light on face.",
+      "ts": 1795277083240
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083185999 hint=Increase light on face.",
+      "ts": 1795277083280
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083218142 hint=Increase light on face.",
+      "ts": 1795277083316
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083266061 hint=Increase light on face.",
+      "ts": 1795277083348
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083329045 hint=Increase light on face.",
+      "ts": 1795277083391
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083361264 hint=Increase light on face.",
+      "ts": 1795277083434
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083393692 hint=Increase light on face.",
+      "ts": 1795277083476
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083425913 hint=Increase light on face.",
+      "ts": 1795277083513
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083458169 hint=Increase light on face.",
+      "ts": 1795277083551
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083521937 hint=Increase light on face.",
+      "ts": 1795277083584
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083553672 hint=Increase light on face.",
+      "ts": 1795277083618
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083585470 hint=Increase light on face.",
+      "ts": 1795277083657
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083618312 hint=Increase light on face.",
+      "ts": 1795277083692
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083665186 hint=Increase light on face.",
+      "ts": 1795277083725
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083697278 hint=Increase light on face.",
+      "ts": 1795277083758
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083730097 hint=Increase light on face.",
+      "ts": 1795277083795
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083762194 hint=Increase light on face.",
+      "ts": 1795277083836
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083794310 hint=Increase light on face.",
+      "ts": 1795277083874
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083826534 hint=Increase light on face.",
+      "ts": 1795277083912
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083889579 hint=Increase light on face.",
+      "ts": 1795277083950
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083921532 hint=Increase light on face.",
+      "ts": 1795277083982
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083954359 hint=Increase light on face.",
+      "ts": 1795277084017
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277083986547 hint=Increase light on face.",
+      "ts": 1795277084054
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084018415 hint=Increase light on face.",
+      "ts": 1795277084083
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084065947 hint=Increase light on face.",
+      "ts": 1795277084120
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084096945 hint=Increase light on face.",
+      "ts": 1795277084162
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084129534 hint=Increase light on face.",
+      "ts": 1795277084199
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084161511 hint=Increase light on face.",
+      "ts": 1795277084232
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084193372 hint=Increase light on face.",
+      "ts": 1795277084274
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084226177 hint=Increase light on face.",
+      "ts": 1795277084313
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084258597 hint=Increase light on face.",
+      "ts": 1795277084354
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084290099 hint=Increase light on face.",
+      "ts": 1795277084386
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084355649 hint=Increase light on face.",
+      "ts": 1795277084444
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084387074 hint=Increase light on face.",
+      "ts": 1795277084478
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084417904 hint=Increase light on face.",
+      "ts": 1795277084526
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084465048 hint=Increase light on face.",
+      "ts": 1795277084563
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084529269 hint=Increase light on face.",
+      "ts": 1795277084610
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084561410 hint=Increase light on face.",
+      "ts": 1795277084648
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084594101 hint=Increase light on face.",
+      "ts": 1795277084688
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084658292 hint=Increase light on face.",
+      "ts": 1795277084729
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084689275 hint=Increase light on face.",
+      "ts": 1795277084766
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084723030 hint=Increase light on face.",
+      "ts": 1795277084808
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084754561 hint=Increase light on face.",
+      "ts": 1795277084841
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084817837 hint=Increase light on face.",
+      "ts": 1795277084882
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084865996 hint=Increase light on face.",
+      "ts": 1795277084916
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084897779 hint=Increase light on face.",
+      "ts": 1795277084948
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084929718 hint=Increase light on face.",
+      "ts": 1795277084985
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084962004 hint=Increase light on face.",
+      "ts": 1795277085020
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277084993248 hint=Increase light on face.",
+      "ts": 1795277085063
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085025863 hint=Increase light on face.",
+      "ts": 1795277085108
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085058612 hint=Increase light on face.",
+      "ts": 1795277085175
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085089370 hint=Increase light on face.",
+      "ts": 1795277085216
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085154347 hint=Increase light on face.",
+      "ts": 1795277085255
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085218247 hint=Increase light on face.",
+      "ts": 1795277085285
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085264979 hint=Increase light on face.",
+      "ts": 1795277085321
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085298153 hint=Increase light on face.",
+      "ts": 1795277085359
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085329109 hint=Increase light on face.",
+      "ts": 1795277085391
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085361480 hint=Increase light on face.",
+      "ts": 1795277085425
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085394394 hint=Increase light on face.",
+      "ts": 1795277085470
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085426502 hint=Increase light on face.",
+      "ts": 1795277085515
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085458148 hint=Increase light on face.",
+      "ts": 1795277085555
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085521400 hint=Increase light on face.",
+      "ts": 1795277085589
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085553595 hint=Increase light on face.",
+      "ts": 1795277085621
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085587017 hint=Increase light on face.",
+      "ts": 1795277085706
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085618548 hint=Increase light on face.",
+      "ts": 1795277085756
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085665765 hint=Increase light on face.",
+      "ts": 1795277085859
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085697210 hint=Increase light on face.",
+      "ts": 1795277085934
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085762576 hint=Increase light on face.",
+      "ts": 1795277086031
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085890335 hint=Increase light on face.",
+      "ts": 1795277086070
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277085922214 hint=Increase light on face.",
+      "ts": 1795277086107
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086019288 hint=Increase light on face.",
+      "ts": 1795277086142
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086098120 hint=Increase light on face.",
+      "ts": 1795277086191
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086129879 hint=Increase light on face.",
+      "ts": 1795277086234
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086193529 hint=Increase light on face.",
+      "ts": 1795277086271
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086226344 hint=Increase light on face.",
+      "ts": 1795277086314
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086258263 hint=Increase light on face.",
+      "ts": 1795277086350
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086321356 hint=Increase light on face.",
+      "ts": 1795277086389
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086354210 hint=Increase light on face.",
+      "ts": 1795277086421
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086386478 hint=Increase light on face.",
+      "ts": 1795277086454
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086418276 hint=Increase light on face.",
+      "ts": 1795277086488
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086465835 hint=Increase light on face.",
+      "ts": 1795277086524
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086497604 hint=Increase light on face.",
+      "ts": 1795277086559
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086528967 hint=Increase light on face.",
+      "ts": 1795277086592
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086562001 hint=Increase light on face.",
+      "ts": 1795277086634
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086594463 hint=Increase light on face.",
+      "ts": 1795277086666
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086626335 hint=Increase light on face.",
+      "ts": 1795277086701
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086658817 hint=Increase light on face.",
+      "ts": 1795277086738
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086690460 hint=Increase light on face.",
+      "ts": 1795277086768
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086721794 hint=Increase light on face.",
+      "ts": 1795277086800
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086753337 hint=Increase light on face.",
+      "ts": 1795277086839
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086817795 hint=Increase light on face.",
+      "ts": 1795277086878
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086864840 hint=Increase light on face.",
+      "ts": 1795277086920
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086898597 hint=Increase light on face.",
+      "ts": 1795277086954
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086929587 hint=Increase light on face.",
+      "ts": 1795277086991
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086962844 hint=Increase light on face.",
+      "ts": 1795277087026
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277086993778 hint=Increase light on face.",
+      "ts": 1795277087058
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087025367 hint=Increase light on face.",
+      "ts": 1795277087098
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087058009 hint=Increase light on face.",
+      "ts": 1795277087137
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087090098 hint=Increase light on face.",
+      "ts": 1795277087176
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087122230 hint=Increase light on face.",
+      "ts": 1795277087210
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087185593 hint=Increase light on face.",
+      "ts": 1795277087247
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087217530 hint=Increase light on face.",
+      "ts": 1795277087283
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087265324 hint=Increase light on face.",
+      "ts": 1795277087322
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087329675 hint=Increase light on face.",
+      "ts": 1795277087359
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087361837 hint=Increase light on face.",
+      "ts": 1795277087398
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087394445 hint=Increase light on face.",
+      "ts": 1795277087435
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087426146 hint=Increase light on face.",
+      "ts": 1795277087467
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087457941 hint=Increase light on face.",
+      "ts": 1795277087502
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087489783 hint=Increase light on face.",
+      "ts": 1795277087533
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087522059 hint=Increase light on face.",
+      "ts": 1795277087565
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087554072 hint=Increase light on face.",
+      "ts": 1795277087607
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087585662 hint=Increase light on face.",
+      "ts": 1795277087649
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087617311 hint=Increase light on face.",
+      "ts": 1795277087689
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087697658 hint=Increase light on face.",
+      "ts": 1795277087734
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087729620 hint=Increase light on face.",
+      "ts": 1795277087776
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087762391 hint=Increase light on face.",
+      "ts": 1795277087812
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087794192 hint=Increase light on face.",
+      "ts": 1795277087845
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087825671 hint=Increase light on face.",
+      "ts": 1795277087873
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087857965 hint=Increase light on face.",
+      "ts": 1795277087904
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087889372 hint=Increase light on face.",
+      "ts": 1795277087938
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087921071 hint=Increase light on face.",
+      "ts": 1795277087974
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087953939 hint=Increase light on face.",
+      "ts": 1795277088012
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277087985905 hint=Increase light on face.",
+      "ts": 1795277088065
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088017437 hint=Increase light on face.",
+      "ts": 1795277088091
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088065482 hint=Increase light on face.",
+      "ts": 1795277088129
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088098051 hint=Increase light on face.",
+      "ts": 1795277088176
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088130094 hint=Increase light on face.",
+      "ts": 1795277088211
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088162074 hint=Increase light on face.",
+      "ts": 1795277088248
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088194410 hint=Increase light on face.",
+      "ts": 1795277088280
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088257490 hint=Increase light on face.",
+      "ts": 1795277088314
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088289228 hint=Increase light on face.",
+      "ts": 1795277088348
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088321803 hint=Increase light on face.",
+      "ts": 1795277088384
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088353561 hint=Increase light on face.",
+      "ts": 1795277088423
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088385764 hint=Increase light on face.",
+      "ts": 1795277088462
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088418711 hint=Increase light on face.",
+      "ts": 1795277088501
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088464906 hint=Increase light on face.",
+      "ts": 1795277088539
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088497152 hint=Increase light on face.",
+      "ts": 1795277088583
+    },
+    {
+      "level": 1,
+      "message": "[sample] validationStatus Too Dark (5) ts=1795277088530473 hint=Increase light on face.",
+      "ts": 1795277088623
+    },
+    {
+      "level": 1,
+      "message": "[VYTA State] -> STOPPING",
+      "ts": 1795277088657
+    },
+    {
+      "level": 1,
+      "message": "[sample] processingStatus -> Stopping (4)",
+      "ts": 1795277088679
+    },
+    {
+      "level": 1,
+      "message": "[VYTA State] -> STOPPING",
+      "ts": 1795277088679
+    },
+    {
+      "level": 1,
+      "message": "[sample] processingStatus -> Idle (1)",
+      "ts": 1795277088711
+    },
+    {
+      "level": 1,
+      "message": "[VYTA State] -> IDLE",
+      "ts": 1795277088712
+    },
+    {
+      "level": 1,
+      "message": "[VYTA State] -> IDLE",
+      "ts": 1795277088714
+    },
+    {
+      "level": 3,
+      "message": "Uncaught (in promise) TypeError: Cannot close a ERRORED writable stream",
+      "ts": 1795277088735
+    }
+  ],
+  "errors": [
+    "ensureDir is not defined"
+  ]
+}

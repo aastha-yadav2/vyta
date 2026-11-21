@@ -1,0 +1,156 @@
+{
+  "timestamp": "2026-11-21T16:23:17.168Z",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "nodeVersion": "v24.18.0",
+    "electronVersion": "43.2.0",
+    "chromeVersion": "150.0.7871.129"
+  },
+  "tests": [
+    {
+      "name": "Test 1: Video input device detected and enumerated",
+      "passed": true,
+      "details": "{\"count\":1,\"labels\":[\"USB2.0 HD UVC WebCam (3277:0029)\"]}"
+    },
+    {
+      "name": "Test 2: Diagnostic Separation starts in clean uninitialized state",
+      "passed": true,
+      "details": "{\"camera\":\"NOT_CHECKED\",\"face\":\"Inactive\",\"sdk\":\"Idle\",\"signal\":\"Unavailable\"}"
+    },
+    {
+      "name": "Test 3: Camera hardware acquisition delivers target resolution (>= 640x480)",
+      "passed": true,
+      "details": "{\"success\":true,\"width\":640,\"height\":480,\"canManual\":true,\"fps\":30.445429876234584,\"frames\":46}"
+    },
+    {
+      "name": "Test 4: Live session starts and transitions cleanly to RUNNING",
+      "passed": true,
+      "details": "{\"state\":\"RUNNING\",\"sdkStatus\":\"Running\",\"camStatus\":\"READY\"}"
+    },
+    {
+      "name": "Test 5: Live SmartSpectra pipeline delivers frames, validation feedback & facial luminance",
+      "passed": true,
+      "details": "{\"camera\":\"READY\",\"face\":\"Face Obscured / Dark\",\"sdk\":\"Running\",\"signal\":\"Unavailable\",\"validationCount\":94,\"latestCode\":5,\"validationName\":\"TooDark\",\"facialLum\":8.2,\"facialMetrics\":{\"mean\":8.2,\"median\":8.4,\"p10\":7.8,\"p90\":8.4,\"dynamicRange\":0.6,\"min\":6.5,\"max\":16.3,\"stdDev\":0.43,\"frameStdDev\":0.33,\"isOccluded\":true,\"roi\":{\"x\":40,\"y\":15,\"width\":80,\"height\":75}},\"breathingRateCount\":0}"
+    },
+    {
+      "name": "Test 6: Strict vitals integrity — values are genuine SDK outputs or null placeholder (\"—\")",
+      "passed": true,
+      "details": "{\"brCount\":0,\"latestBr\":null,\"breathingText\":\"—\",\"pulseText\":\"—\",\"isPlaceholderOrReal\":true}"
+    },
+    {
+      "name": "Test 7: Telemetry toggles are safely disabled during active session",
+      "passed": true,
+      "details": "{\"cardioDisabled\":true,\"faceDisabled\":true}"
+    },
+    {
+      "name": "Test 8: Tab switching during active sensing preserves session state and pipeline stability",
+      "passed": true,
+      "details": "{\"t8_hist\":{\"state\":\"RUNNING\",\"isHistActive\":true},\"t8_live\":{\"state\":\"RUNNING\",\"sdkStatus\":\"Running\"}}"
+    },
+    {
+      "name": "Test 9: Session stop fully releases camera hardware and restores IDLE state",
+      "passed": true,
+      "details": "{\"state\":\"IDLE\",\"sdkStatus\":\"Idle\",\"settingsIsNull\":true,\"tracksLive\":false,\"togglesReEnabled\":true}"
+    },
+    {
+      "name": "Test 10: Reset session clears validation history and resets readouts to placeholders",
+      "passed": true,
+      "details": "{\"state\":\"IDLE\",\"historyCleared\":true,\"brText\":\"—\",\"pulseText\":\"—\",\"validation\":\"Click Start when ready.\"}"
+    },
+    {
+      "name": "Tests 11-15: 5x consecutive Start/Stop lifecycle cycles succeed without leaks or lockups",
+      "passed": true,
+      "details": "successes: 5/5"
+    },
+    {
+      "name": "Test 16: Onboarding camera check probe executes cleanly and safely releases camera",
+      "passed": true,
+      "details": "{\"badgeText\":\"Camera ready\",\"cameraAvailability\":\"READY\"}"
+    },
+    {
+      "name": "Test 17: Regression Phase 2 — App shell, 4 navigation tabs and view panes intact",
+      "passed": true,
+      "details": "{\"tabsFound\":[\"overview\",\"live-session\",\"history\",\"settings\"],\"panesFound\":[\"view-overview\",\"view-live-session\",\"view-history\",\"view-settings\"],\"hasAllTabs\":true}"
+    },
+    {
+      "name": "Test 18: Regression Phase 3 — Adaptive Breathing Canvas and duration selectors intact",
+      "passed": true,
+      "details": "{\"hasOrb\":true,\"hasDurationSelectors\":false,\"hasHeroBtn\":true}"
+    },
+    {
+      "name": "Test 19: Regression Phase 4 — 5-step onboarding flow and camera consent gating intact",
+      "passed": true,
+      "details": "{\"hasOverlay\":true,\"stepCount\":5,\"hasConsentBox\":true}"
+    },
+    {
+      "name": "Test 20: Regression Phase 5 — History analytics cards, calendar, detail modal and calculations intact",
+      "passed": true,
+      "details": "{\"hasStatsGrid\":true,\"hasChartWrap\":true,\"hasCalWrap\":true,\"hasModal\":true,\"hasAnalyticsCalc\":true}"
+    }
+  ],
+  "cameraAudit": {
+    "enumeration": {
+      "count": 1,
+      "labels": [
+        "USB2.0 HD UVC WebCam (3277:0029)"
+      ]
+    },
+    "preflight": {
+      "success": true,
+      "width": 640,
+      "height": 480,
+      "canManual": true,
+      "fps": 30.445429876234584,
+      "frames": 46
+    },
+    "liveSeparation": {
+      "camera": "READY",
+      "face": "Face Obscured / Dark",
+      "sdk": "Running",
+      "signal": "Unavailable",
+      "validationCount": 94,
+      "latestCode": 5,
+      "validationName": "TooDark",
+      "facialLum": 8.2,
+      "facialMetrics": {
+        "mean": 8.2,
+        "median": 8.4,
+        "p10": 7.8,
+        "p90": 8.4,
+        "dynamicRange": 0.6,
+        "min": 6.5,
+        "max": 16.3,
+        "stdDev": 0.43,
+        "frameStdDev": 0.33,
+        "isOccluded": true,
+        "roi": {
+          "x": 40,
+          "y": 15,
+          "width": 80,
+          "height": 75
+        }
+      },
+      "breathingRateCount": 0
+    }
+  },
+  "lifecycleMetrics": {
+    "fiveCycles": {
+      "lifecycleSuccessCount": 5,
+      "cycleTimes": [
+        3938,
+        3883,
+        3912,
+        3938,
+        3934
+      ]
+    }
+  },
+  "summary": {
+    "totalTests": 16,
+    "passedCount": 16,
+    "failedCount": 0,
+    "allPassed": true,
+    "status": "VERIFIED"
+  }
+}
