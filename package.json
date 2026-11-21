@@ -7,16 +7,17 @@
   "scripts": {
     "build": "node build.js",
     "start": "npm run build && electron .",
-    "test:phase4": "npm run build && electron .",
-    "test:phase5": "npm run build && electron .",
-    "test:phase6": "npm run build && electron .",
+    "test": "node run-test.js 6",
+    "test:phase4": "node run-test.js 4",
+    "test:phase5": "node run-test.js 5",
+    "test:phase6": "node run-test.js 6",
     "dist:mac": "npm run build && electron-builder --mac --arm64",
     "dist:win": "npm run build && electron-builder --win --x64",
     "dist:linux": "npm run build && electron-builder --linux --x64",
     "dist:all": "npm run dist:mac && npm run dist:win && npm run dist:linux"
   },
   "dependencies": {
-    "@smartspectra/node-sdk": "latest",
+    "@smartspectra/node-sdk": "3.4.0",
     "chart.js": "^4.5.0"
   },
   "devDependencies": {
